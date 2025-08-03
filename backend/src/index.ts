@@ -50,7 +50,7 @@ fastify.setErrorHandler((error, request, reply) => {
 // Start server
 const start = async () => {
   try {
-    const host = process.env.HOST || "0.0.0.0";
+    const host = process.env.HOST || "::";
     const port = Number(process.env.PORT) || 3001;
 
     await fastify.listen({ host, port });

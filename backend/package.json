@@ -2,18 +2,19 @@
   "name": "b-random-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "bun --watch src/server.ts",
-    "build": "bun build src/server.ts --outdir dist",
-    "start": "bun dist/server.js",
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "start": "bun dist/index.js",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "bun src/db/seed.ts"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "What The Shuck",
+  "license": "",
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
     "@fastify/cors": "^11.1.0",
@@ -25,7 +26,7 @@
     "fastify": "^5.4.0",
     "ioredis": "^5.7.0",
     "node-cron": "^4.2.1",
-    "postgres": "^3.4.7",
+    "pg": "^8.16.3",
     "redis": "^5.7.0",
     "rss-parser": "^3.13.0"
   },
@@ -35,6 +36,7 @@
     "@types/pg": "^8.15.5",
     "drizzle-kit": "^0.31.4",
     "nodemon": "^3.1.10",
+    "pino-pretty": "^13.1.1",
     "tsx": "^4.20.3",
     "typescript": "^5.9.2"
   }

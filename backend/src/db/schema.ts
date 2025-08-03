@@ -10,3 +10,7 @@ export const posts = pgTable("posts", {
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
+
+// Export type for TypeScript inference
+export type Post = typeof posts.$inferSelect;
+export type NewPost = typeof posts.$inferInsert;

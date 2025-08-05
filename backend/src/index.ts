@@ -2,6 +2,8 @@ import Fastify from "fastify";
 import cors from "@fastify/cors";
 import { config } from "dotenv";
 import { postsRoutes } from "./routes/posts";
+import { sourcesRoutes } from "./routes/sources";
+import { fetchRoutes } from "./routes/fetch";
 
 // Load environment variables
 config();
@@ -35,6 +37,8 @@ fastify.get("/health", async () => {
 
 // Register API routes
 fastify.register(postsRoutes, { prefix: "/api" });
+fastify.register(sourcesRoutes, { prefix: "/api" });
+fastify.register(fetchRoutes, { prefix: "/api" });
 
 // Global error handler
 fastify.setErrorHandler((error, request, reply) => {
